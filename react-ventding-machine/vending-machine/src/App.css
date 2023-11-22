@@ -1,0 +1,79 @@
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+.App {
+  text-align: center;
+  background-image: url('https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg');
+  background-size: cover;
+  padding: 20px;
+}
+
+nav {
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 15px;
+}
+
+nav a {
+  color: #4dff4d;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ff4dff;
+}
+
+/* Vending Machine Styles */
+.VendingMachine {
+  border: 3px solid #4dff4d;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.VendingMachine h2, .VendingMachine h3 {
+  color: #4dff4d;
+}
+
+/* Snack Components Styles */
+.Snack {
+  border: 2px solid #ff4dff;
+  padding: 20px;
+  margin: 20px auto;
+  width: 60%;
+  background-color: rgba(255, 0, 255, 0.2);
+  border-radius: 10px;
+}
+
+.Snack h2 {
+  color: #ff4dff;
+}
+
+.Snack p {
+  color: #fff;
+}
+
+.Snack a {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #4dff4d;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.Snack a:hover {
+  background-color: #ff4dff;
+}
