@@ -11,7 +11,7 @@
     "json-server": "*",
     "react": "*",
     "react-dom": "*",
-    "react-router-dom": "*",
+    "react-router-dom": "^6.19.0",
     "react-scripts": "*",
     "web-vitals": "*"
   },
