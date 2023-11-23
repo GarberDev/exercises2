@@ -70,12 +70,6 @@ class BinaryTree {
     nextLargerRecursive(this.root);
     return result;
   }
-
-  // Placeholder for further study methods
-  areCousins(node1, node2) {}
-  static serialize() {}
-  static deserialize() {}
-  lowestCommonAncestor(node1, node2) {}
 }
 
 module.exports = { BinaryTree, BinaryTreeNode };
