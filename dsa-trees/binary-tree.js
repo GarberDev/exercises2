@@ -1,5 +1,3 @@
-/** BinaryTreeNode: node for a general tree. */
-
 class BinaryTreeNode {
   constructor(val, left = null, right = null) {
     this.val = val;
@@ -13,63 +11,71 @@ class BinaryTree {
     this.root = root;
   }
 
-  /** minDepth(): return the minimum depth of the tree -- that is,
-   * the length of the shortest path from the root to a leaf. */
-
+  // minDepth method
   minDepth() {
-
+    const minDepthRecursive = (node) => {
+      if (!node) return 0;
+      if (!node.left && !node.right) return 1;
+      if (!node.left) return minDepthRecursive(node.right) + 1;
+      if (!node.right) return minDepthRecursive(node.left) + 1;
+      return (
+        Math.min(minDepthRecursive(node.left), minDepthRecursive(node.right)) +
+        1
+      );
+    };
+    return minDepthRecursive(this.root);
   }
 
-  /** maxDepth(): return the maximum depth of the tree -- that is,
-   * the length of the longest path from the root to a leaf. */
-
+  // maxDepth method
   maxDepth() {
-
+    const maxDepthRecursive = (node) => {
+      if (!node) return 0;
+      return (
+        1 +
+        Math.max(maxDepthRecursive(node.left), maxDepthRecursive(node.right))
+      );
+    };
+    return maxDepthRecursive(this.root);
   }
 
-  /** maxSum(): return the maximum sum you can obtain by traveling along a path in the tree.
-   * The path doesn't need to start at the root, but you can't visit a node more than once. */
-
+  // maxSum method
   maxSum() {
+    let maxSum = Number.MIN_SAFE_INTEGER;
 
+    const maxSumRecursive = (node) => {
+      if (!node) return 0;
+      const left = Math.max(maxSumRecursive(node.left), 0);
+      const right = Math.max(maxSumRecursive(node.right), 0);
+      maxSum = Math.max(maxSum, node.val + left + right);
+      return node.val + Math.max(left, right);
+    };
+
+    maxSumRecursive(this.root);
+    return maxSum === Number.MIN_SAFE_INTEGER ? 0 : maxSum;
   }
 
-  /** nextLarger(lowerBound): return the smallest value in the tree
-   * which is larger than lowerBound. Return null if no such value exists. */
-
+  // nextLarger method
   nextLarger(lowerBound) {
+    let result = null;
 
+    const nextLargerRecursive = (node) => {
+      if (!node) return;
+      if (node.val > lowerBound && (result === null || node.val < result)) {
+        result = node.val;
+      }
+      nextLargerRecursive(node.left);
+      nextLargerRecursive(node.right);
+    };
+
+    nextLargerRecursive(this.root);
+    return result;
   }
 
-  /** Further study!
-   * areCousins(node1, node2): determine whether two nodes are cousins
-   * (i.e. are at the same level but have different parents. ) */
-
-  areCousins(node1, node2) {
-
-  }
-
-  /** Further study!
-   * serialize(tree): serialize the BinaryTree object tree into a string. */
-
-  static serialize() {
-
-  }
-
-  /** Further study!
-   * deserialize(stringTree): deserialize stringTree into a BinaryTree object. */
-
-  static deserialize() {
-
-  }
-
-  /** Further study!
-   * lowestCommonAncestor(node1, node2): find the lowest common ancestor
-   * of two nodes in a binary tree. */
-
-  lowestCommonAncestor(node1, node2) {
-    
-  }
+  // Placeholder for further study methods
+  areCousins(node1, node2) {}
+  static serialize() {}
+  static deserialize() {}
+  lowestCommonAncestor(node1, node2) {}
 }
 
 module.exports = { BinaryTree, BinaryTreeNode };
